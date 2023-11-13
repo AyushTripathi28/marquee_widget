@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 /// ```dart
 /// MarqueeWidget(
 ///   movingWidget: Text('Scrolling text or any other widget'),
-///   gap: 0.05,
+///   gap: 10,
 ///   velocity: 30,
 ///   moveDirectionLtr: false,
 ///   height: 20,
@@ -37,17 +37,17 @@ class MarqueeWidget extends StatefulWidget {
   /// ```
   final Widget movingWidget;
 
-  /// The gap between each repetition of the widget as a ratio of screen width.
+  /// The gap or blank space to display between each instance of the widget..
   ///
   /// ## Sample code
   ///
-  /// In this example, there's a gap of half the screen width between each instance of the widget.
-  /// should be greater than 0 and less than 1:
+  /// In this example, there's a gap of width 10 between each instance of the widget.
+  /// should be greater than equal to 0:
   ///
   /// ```dart
   /// MarqueeWidget(
   ///   movingWidget: Text('Scrolling text'),
-  ///   gap: 0.5,
+  ///   gap: 10,
   /// )
   /// ```
   final double gap;
@@ -98,14 +98,14 @@ class MarqueeWidget extends StatefulWidget {
 
   const MarqueeWidget({
     Key? key,
-    this.gap = 0.9,
+    this.gap = 10,
     required this.movingWidget,
     this.velocity = 30,
     this.moveDirectionLtr = false,
     this.height = 20,
-  })  : assert(gap >= 0, 'Gap must be greater than 0.'),
-        assert(velocity >= 0, 'Velocity must be greater thans 0.'),
-        assert(height >= 15, 'Height must be greater than 0.'),
+  })  : assert(gap >= 0, 'Gap must be greater than and equal to 0.'),
+        assert(velocity >= 0, 'Velocity must be greater than and equal to 0.'),
+        assert(height >= 15, 'Height must be greater than and equal to 0.'),
         super(key: key);
 
   @override
@@ -119,9 +119,6 @@ class MarqueeWidgetState extends State<MarqueeWidget>
 
   /// Controls the position of the scrollable widget.
   late final ScrollController _scrollController;
-
-  /// Stores the screen width to calculate the gap.
-  double _screenWidth = 0.0;
 
   @override
   void initState() {
@@ -163,8 +160,6 @@ class MarqueeWidgetState extends State<MarqueeWidget>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // Update the screen width when the dependencies change.
-    _screenWidth = MediaQuery.of(context).size.width;
 
     // Start the scrolling animation once the layout is built.
     WidgetsBinding.instance.addPostFrameCallback((_) => _startScrolling());
@@ -191,7 +186,7 @@ class MarqueeWidgetState extends State<MarqueeWidget>
         itemBuilder: (context, index) {
           return index.isEven
               ? widget.movingWidget
-              : SizedBox(width: _screenWidth * widget.gap);
+              : SizedBox(width: widget.gap);
         },
       ),
     );
