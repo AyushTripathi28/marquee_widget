@@ -1,7 +1,7 @@
 name: marquee_widget
 description: "A Flutter widget that scrolls infinitely. Comes with customisation for style, speed, direction, and more. Supports all platforms."
 version: 0.0.1
-homepage:
+repository: https://github.com/AyushTripathi28/marquee_widget
 
 environment:
   sdk: ">=3.1.0 <4.0.0"
