@@ -1,4 +1,4 @@
-library marquee_widget;
+library marque_widget;
 
 import 'package:flutter/material.dart';
 

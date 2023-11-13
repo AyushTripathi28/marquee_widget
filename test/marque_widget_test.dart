@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:marquee_widget/marquee_widget.dart';
+import 'package:marque_widget/marque_widget.dart';
 
 void main() {
   // Test for Custom Properties

@@ -14,11 +14,11 @@ _Appreciate the widget? Show some ❤️ and star the repo to support the projec
 
 ## Installation
 
-Add `marquee_widget` to your `pubspec.yaml`:
+Add `marque_widget` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  marquee_widget: ^0.1.0
+  marque_widget: ^0.1.0
 ```
 
 Then run `flutter packages get`
@@ -28,7 +28,7 @@ Then run `flutter packages get`
 Here's a simple example to get you started:
 
 ```dart
-import 'package:marquee_widget/marquee_widget.dart';
+import 'package:marque_widget/marque_widget.dart';
 
 MarqueeWidget(
 movingWidget: Text('Scrolling text here'),
